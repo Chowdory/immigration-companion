@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Documents | StudyPath</title>
+<meta name="description" content="Upload, organize and track your immigration documents with expiry monitoring." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>Your Documents</h1>
+        <p class="sub">Upload, organize, and track your immigration documents with intelligent verification and expiry monitoring.</p>
+      </div>
+      <button class="btn btn-primary" id="uploadBtn">Upload Document</button>
+    </div>
+
+    <div class="chips" id="typeChips"></div>
+
+    <div class="card-head" style="margin-bottom:12px;">
+      <span class="small muted" id="docCount">Showing 0 of 0 documents</span>
+      <span class="small muted" id="docExpiring"></span>
+    </div>
+
+    <div id="docList"></div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="docModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="docModalTitle">
+  <div class="modal">
+    <h2 id="docModalTitle">Upload Document</h2>
+    <p class="modal-sub">Files stay on your device in this demo build. Only the document details are stored.</p>
+    <form id="docForm" class="form-grid">
+      <input type="hidden" id="docId" />
+      <div class="field full">
+        <label for="docFile">Choose a file</label>
+        <input type="file" id="docFile" style="padding:9px 12px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;width:100%;" />
+      </div>
+      <div class="field full">
+        <label for="docName">Document name</label>
+        <input type="text" id="docName" required placeholder="Passport - bio page.pdf" />
+      </div>
+      <div class="field">
+        <label for="docType">Type</label>
+        <select id="docType"></select>
+      </div>
+      <div class="field">
+        <label for="docExpiry">Expiry date (optional)</label>
+        <input type="date" id="docExpiry" />
+      </div>
+      <div class="modal-foot full">
+        <button type="button" class="btn btn-ghost" data-close-modal="docModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Document</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/documents.js"></script>
+</body>
+</html>

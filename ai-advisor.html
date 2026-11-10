@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Advisor | StudyPath</title>
+<meta name="description" content="Get instant guidance on your Canadian immigration journey." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>AI Immigration Advisor</h1>
+        <p class="sub">Get instant, personalized guidance on your Canadian immigration journey</p>
+      </div>
+      <button class="btn btn-sm" id="clearChat">Clear conversation</button>
+    </div>
+
+    <div class="advisor-grid">
+      <section class="chat" aria-label="AI advisor chat">
+        <div class="chat-head">
+          <span class="icon-tile tile-violet" style="width:34px;height:34px;border-radius:11px;" aria-hidden="true" id="chatAvatar"></span>
+          <div style="flex:1;">
+            <div class="name">AI Immigration Advisor</div>
+            <div class="online">Online</div>
+          </div>
+        </div>
+        <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+        <form class="chat-input" id="chatForm">
+          <input type="text" id="chatInput" placeholder="Ask about immigration, permits, documents..." autocomplete="off" aria-label="Your question" />
+          <button class="btn btn-primary" type="submit" id="sendBtn" aria-label="Send"></button>
+        </form>
+      </section>
+
+      <aside style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-head"><h2>Important Disclaimer</h2></div>
+          <p class="disclaimer">This AI provides general guidance based on publicly available information. Always verify advice with official IRCC sources or consult a qualified immigration lawyer for specific cases.</p>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Quick Questions</h2></div>
+          <div id="quickQuestions"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2>Popular Topics</h2></div>
+          <div id="topics"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/advisor.js"></script>
+</body>
+</html>

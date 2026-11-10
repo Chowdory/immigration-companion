@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Applications | StudyPath</title>
+<meta name="description" content="Track and manage your Canadian immigration applications." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>My Applications</h1>
+        <p class="sub">Track and manage your immigration applications.</p>
+      </div>
+      <button class="btn btn-primary" id="newApp">+ New Application</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="search" placeholder="Search applications..." aria-label="Search applications" />
+      <select id="statusFilter" aria-label="Filter by status">
+        <option value="all">All Statuses</option>
+        <option value="planning">Planning</option>
+        <option value="in progress">In progress</option>
+        <option value="under review">Under review</option>
+        <option value="approved">Approved</option>
+        <option value="rejected">Rejected</option>
+      </select>
+      <select id="typeFilter" aria-label="Filter by type">
+        <option value="all">All Types</option>
+        <option value="Study Permit">Study Permit</option>
+        <option value="Study Permit Extension">Study Permit Extension</option>
+        <option value="Work Permit">Work Permit</option>
+        <option value="Post-Graduation Work Permit">Post-Graduation Work Permit</option>
+        <option value="Permanent Residence">Permanent Residence</option>
+        <option value="Visitor Visa">Visitor Visa</option>
+      </select>
+    </div>
+
+    <div class="grid grid-3" id="appGrid"></div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="appModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="appModalTitle">
+  <div class="modal">
+    <h2 id="appModalTitle">New Application</h2>
+    <p class="modal-sub">Keep every immigration application, its status and its reference number in one place.</p>
+    <form id="appForm" class="form-grid">
+      <input type="hidden" id="appId" />
+      <div class="field full">
+        <label for="fTitle">Application title</label>
+        <input type="text" id="fTitle" required placeholder="Study Permit Extension" />
+      </div>
+      <div class="field">
+        <label for="fType">Type</label>
+        <select id="fType">
+          <option>Study Permit</option>
+          <option>Study Permit Extension</option>
+          <option>Work Permit</option>
+          <option>Post-Graduation Work Permit</option>
+          <option>Permanent Residence</option>
+          <option>Visitor Visa</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fStatus">Status</label>
+        <select id="fStatus">
+          <option value="planning">Planning</option>
+          <option value="in progress">In progress</option>
+          <option value="under review">Under review</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="fRef">Reference number (optional)</label>
+        <input type="text" id="fRef" placeholder="#SP2024001234" />
+      </div>
+      <div class="field full">
+        <label for="fDesc">Notes</label>
+        <textarea id="fDesc" placeholder="What is this application about?"></textarea>
+      </div>
+      <div class="modal-foot full">
+        <button type="button" class="btn btn-ghost" data-close-modal="appModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Application</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/applications.js"></script>
+</body>
+</html>

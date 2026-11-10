@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calendar | StudyPath</title>
+<meta name="description" content="Track immigration deadlines, appointments and document reminders." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>Calendar &amp; Reminders</h1>
+        <p class="sub">Track important dates, deadlines, and appointments. Never miss a critical immigration milestone again.</p>
+      </div>
+      <button class="btn btn-primary" id="addReminder">Add Reminder</button>
+    </div>
+
+    <div class="cal-grid">
+      <div class="card">
+        <div class="cal-head">
+          <h2 id="monthLabel">November 2026</h2>
+          <div class="cal-nav">
+            <button class="btn btn-sm" id="prevMonth" aria-label="Previous month" data-ic="chevronLeft"></button>
+            <button class="btn btn-sm" id="todayBtn">Today</button>
+            <button class="btn btn-sm" id="nextMonth" aria-label="Next month" data-ic="chevronRight"></button>
+          </div>
+        </div>
+        <div class="cal-dow">
+          <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+        </div>
+        <div class="cal-days" id="calDays"></div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-head"><h2>Upcoming</h2><span class="tiny muted" id="upcomingCount"></span></div>
+          <div id="upcomingList"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2 id="dayTitle">Selected day</h2></div>
+          <div id="dayList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="reminderModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="reminderTitle">
+  <div class="modal">
+    <h2 id="reminderTitle">Add Reminder</h2>
+    <p class="modal-sub">Deadlines, fees, appointments and document requests in one timeline.</p>
+    <form id="reminderForm" class="form-grid">
+      <input type="hidden" id="remId" />
+      <div class="field full">
+        <label for="remName">Reminder</label>
+        <input type="text" id="remName" required placeholder="Medical Examination" />
+      </div>
+      <div class="field">
+        <label for="remDate">Date</label>
+        <input type="date" id="remDate" required />
+      </div>
+      <div class="field">
+        <label for="remType">Type</label>
+        <select id="remType">
+          <option>Deadline</option>
+          <option>Document</option>
+          <option>Appointment</option>
+          <option>Payment</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="remNote">Note</label>
+        <textarea id="remNote" placeholder="Anything you need to remember?"></textarea>
+      </div>
+      <div class="modal-foot full">
+        <button type="button" class="btn btn-ghost" data-close-modal="reminderModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Reminder</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/calendar.js"></script>
+</body>
+</html>

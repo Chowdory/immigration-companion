@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Settings | StudyPath</title>
+<meta name="description" content="Manage your StudyPath profile, notifications, privacy and preferences." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>Settings</h1>
+        <p class="sub">Customize your StudyPath experience and manage your account preferences.</p>
+      </div>
+    </div>
+
+    <div class="settings-grid">
+      <nav class="settings-nav" id="settingsNav" aria-label="Settings sections">
+        <button class="active" data-tab="profile">Profile</button>
+        <button data-tab="notifications">Notifications</button>
+        <button data-tab="privacy">Privacy &amp; Security</button>
+        <button data-tab="preferences">Preferences</button>
+        <button data-tab="account">Account</button>
+      </nav>
+
+      <section>
+        <div class="card" id="panel-profile">
+          <div class="card-head"><h2>Profile Information</h2></div>
+          <div class="avatar-row">
+            <div class="avatar" id="avatarInitials">SC</div>
+            <div>
+              <button class="btn btn-sm" id="changePhoto" type="button">Change Photo</button>
+              <button class="btn btn-sm btn-ghost" id="removePhoto" type="button">Remove</button>
+              <p class="tiny muted" style="margin-top:8px;">Photos are not uploaded in this demo build.</p>
+            </div>
+          </div>
+          <form class="form-grid" id="profileForm">
+            <div class="field">
+              <label for="pFullName">Full Name</label>
+              <input type="text" id="pFullName" />
+            </div>
+            <div class="field">
+              <label for="pEmail">Email Address</label>
+              <input type="email" id="pEmail" />
+            </div>
+            <div class="field">
+              <label for="pPhone">Phone Number</label>
+              <input type="tel" id="pPhone" />
+            </div>
+            <div class="field">
+              <label for="pLocation">Location</label>
+              <input type="text" id="pLocation" />
+            </div>
+            <div class="field full">
+              <label for="pBio">Bio</label>
+              <textarea id="pBio"></textarea>
+            </div>
+            <div class="full" style="display:flex;justify-content:flex-end;">
+              <button class="btn btn-primary" type="submit">Save Changes</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card" id="panel-notifications" hidden>
+          <div class="card-head"><h2>Notifications</h2></div>
+          <div class="switch-row">
+            <div><div class="title">Email notifications</div><div class="desc">Application updates and IRCC reminders by email</div></div>
+            <div class="switch" data-switch="notifyEmail" role="switch" tabindex="0" aria-label="Email notifications"></div>
+          </div>
+          <div class="switch-row">
+            <div><div class="title">Deadline reminders</div><div class="desc">Alerts 3 days before a tracked deadline</div></div>
+            <div class="switch" data-switch="notifyDeadlines" role="switch" tabindex="0" aria-label="Deadline reminders"></div>
+          </div>
+          <div class="switch-row">
+            <div><div class="title">Document expiry alerts</div><div class="desc">Warn me 90 days before a document expires</div></div>
+            <div class="switch" data-switch="notifyDocs" role="switch" tabindex="0" aria-label="Document expiry alerts"></div>
+          </div>
+          <p class="tiny muted" style="margin-top:14px;">These settings are saved on this device.</p>
+        </div>
+
+        <div class="card" id="panel-privacy" hidden>
+          <div class="card-head"><h2>Privacy &amp; Security</h2></div>
+          <div class="switch-row">
+            <div><div class="title">Usage analytics</div><div class="desc">Share anonymous usage data to improve the app</div></div>
+            <div class="switch" data-switch="analytics" role="switch" tabindex="0" aria-label="Usage analytics"></div>
+          </div>
+          <div class="switch-row">
+            <div><div class="title">Share anonymized questions</div><div class="desc">Help improve AI Advisor answers</div></div>
+            <div class="switch" data-switch="shareAnonymized" role="switch" tabindex="0" aria-label="Share anonymized questions"></div>
+          </div>
+          <div class="switch-row">
+            <div><div class="title">Your data stays local</div><div class="desc">Applications, documents and reminders live in this browser</div></div>
+            <span class="pill pill-green">On device</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
+            <button class="btn btn-sm" id="exportData" type="button">Export my data (JSON)</button>
+            <button class="btn btn-sm btn-danger" id="wipeData" type="button">Delete all data</button>
+          </div>
+        </div>
+
+        <div class="card" id="panel-preferences" hidden>
+          <div class="card-head"><h2>Preferences</h2></div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="pLanguage">Language</label>
+              <select id="pLanguage">
+                <option>English</option>
+                <option>French</option>
+                <option>German</option>
+                <option>Hindi</option>
+                <option>Bengali</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pCurrency">Currency</label>
+              <select id="pCurrency">
+                <option>CAD</option>
+                <option>USD</option>
+                <option>EUR</option>
+                <option>INR</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pTheme">Theme</label>
+              <select id="pTheme">
+                <option>Dark</option>
+                <option>System</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="pCountry">Destination</label>
+              <select id="pCountry">
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>United Kingdom</option>
+                <option>Germany</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" id="panel-account" hidden>
+          <div class="card-head"><h2>Account</h2></div>
+          <p class="small muted" style="margin-bottom:14px;">This build runs entirely in your browser: no server account, no sign in.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button class="btn btn-sm" id="resetDemo" type="button">Reset demo data</button>
+            <button class="btn btn-sm btn-danger" id="signOut" type="button">Sign Out</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/settings.js"></script>
+</body>
+</html>

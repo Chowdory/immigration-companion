@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Immigration Dashboard | StudyPath</title>
+<meta name="description" content="Your Canadian immigration journey: applications, documents, deadlines and AI guidance in one place." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+
+    <section class="hero">
+      <span class="hero-badge">Immigration Dashboard</span>
+      <h1>Welcome back, <span class="accent" id="firstName">Sarah</span>!</h1>
+      <p>Your Canadian immigration journey continues. Let's review your progress and plan your next steps.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="ai-advisor.html">Ask AI Advisor</a>
+        <a class="btn" href="applications.html">New Application</a>
+      </div>
+    </section>
+
+    <section class="grid grid-4" id="stats" aria-label="Overview"></section>
+
+    <section class="dash-grid">
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-head"><h2>Current Status</h2><span class="pill pill-violet" id="statusPill">Study Permit Holder</span></div>
+          <div class="status-strip" id="statusStrip"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;">
+              <span class="small muted">Program Progress</span>
+              <span class="small" id="progressLabel">75% Complete</span>
+            </div>
+            <div class="progress"><span id="progressBar" style="width:75%"></span></div>
+          </div>
+          <div class="grid grid-2" style="margin-top:16px;gap:12px;">
+            <div class="kv"><span class="k">Permit Expires</span><span class="v" id="permitExpires">Dec 2025</span></div>
+            <div class="kv"><span class="k">Days Remaining</span><span class="v" id="daysRemaining">478 days</span></div>
+            <div class="kv"><span class="k">Extension Status</span><span class="v" id="extensionStatus">Planning</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Program</h2><a class="small muted" href="settings.html">Profile</a></div>
+          <div class="grid grid-2" style="gap:12px;">
+            <div class="kv"><span class="k">Program</span><span class="v" id="program">Computer Science</span></div>
+            <div class="kv"><span class="k">Graduation</span><span class="v" id="graduation">May 2025</span></div>
+            <div class="kv"><span class="k">GPA</span><span class="v" id="gpa">3.8/4.0</span></div>
+          </div>
+        </div>
+
+        <div class="alert" id="actionAlert">
+          <span class="icon-tile tile-orange" style="width:32px;height:32px;border-radius:10px;" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 8v5"/><path d="M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          </span>
+          <div class="alert-body">
+            <strong>Action Required</strong>
+            <p id="alertText">Your study permit expires in 8 months. Consider applying for extension.</p>
+            <a class="btn btn-sm" style="margin-top:10px;" href="ai-advisor.html">Get Advice</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2>Immigration Journey Progress</h2>
+              <p class="small muted" style="margin-top:4px;">Track your path to permanent residence</p>
+            </div>
+            <span class="pill pill-violet" id="journeyPct">75% Complete</span>
+          </div>
+          <div class="journey" id="journey"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Recent Activity</h2><span class="tiny muted">Latest first</span></div>
+          <div id="activity"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card">
+          <div class="card-head"><h2>Get started with a common action</h2></div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a class="action-tile" href="documents.html">
+              <span class="icon-tile tile-pink" aria-hidden="true" id="ic-upload"></span>
+              <span><span class="title">Upload Documents</span><br /><span class="desc">Add new immigration documents</span></span>
+            </a>
+            <a class="action-tile" href="ai-advisor.html">
+              <span class="icon-tile tile-violet" aria-hidden="true" id="ic-ask"></span>
+              <span><span class="title">Ask AI Advisor</span><br /><span class="desc">Get personalized guidance</span></span>
+            </a>
+            <a class="action-tile" href="requirements.html">
+              <span class="icon-tile tile-green" aria-hidden="true" id="ic-check"></span>
+              <span><span class="title">Check Eligibility</span><br /><span class="desc">Verify requirements status</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Upcoming Deadlines</h2><a class="small muted" href="calendar.html">Calendar</a></div>
+          <div id="deadlines"></div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Requirements | StudyPath</title>
+<meta name="description" content="Comprehensive guide to Canadian immigration requirements, checklists, processing times and fees." />
+<link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+<div id="sidebar"></div>
+
+<main class="main">
+  <div class="wrap">
+    <div class="page-head">
+      <div>
+        <h1>Requirements Guide</h1>
+        <p class="sub">Comprehensive guide to Canadian immigration requirements</p>
+      </div>
+      <a class="btn" href="ai-advisor.html">Ask about your case</a>
+    </div>
+
+    <h2 style="font-size:17px;margin-bottom:14px;">Quick Start Guides</h2>
+    <div class="grid grid-4" id="guides" style="margin-bottom:28px;"></div>
+
+    <div class="grid grid-2" id="groups" style="margin-bottom:28px;"></div>
+
+    <h2 style="font-size:17px;margin-bottom:14px;">Additional Resources</h2>
+    <div class="grid grid-3">
+      <div class="tool-card">
+        <span class="icon-tile tile-violet" id="icChecklist" aria-hidden="true"></span>
+        <div>
+          <div style="font-weight:600;">Document Checklist</div>
+          <p class="small muted" style="margin-top:4px;">Interactive checklist to ensure you have all required documents</p>
+        </div>
+        <button class="btn btn-sm" id="openChecklist" style="align-self:flex-start;">Open Checklist</button>
+      </div>
+      <div class="tool-card">
+        <span class="icon-tile tile-orange" id="icTimes" aria-hidden="true"></span>
+        <div>
+          <div style="font-weight:600;">Processing Times</div>
+          <p class="small muted" style="margin-top:4px;">Current processing times for different application types</p>
+        </div>
+        <button class="btn btn-sm" id="openTimes" style="align-self:flex-start;">Check Times</button>
+      </div>
+      <div class="tool-card">
+        <span class="icon-tile tile-green" id="icFees" aria-hidden="true"></span>
+        <div>
+          <div style="font-weight:600;">Fee Calculator</div>
+          <p class="small muted" style="margin-top:4px;">Calculate total fees for your immigration applications</p>
+        </div>
+        <button class="btn btn-sm" id="openFees" style="align-self:flex-start;">Calculate Fees</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div class="modal-backdrop" id="guideModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="guideModalTitle">
+  <div class="modal">
+    <h2 id="guideModalTitle">Guide</h2>
+    <p class="modal-sub" id="guideModalSub"></p>
+    <div id="guideModalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" data-close-modal="guideModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="checklistModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="checklistTitle">
+  <div class="modal">
+    <h2 id="checklistTitle">Document Checklist</h2>
+    <p class="modal-sub">Tick items as you collect them. Your progress is saved on this device.</p>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+      <div class="progress" style="flex:1;"><span id="checklistBar" style="width:0%"></span></div>
+      <span class="small muted" id="checklistLabel">0 of 0</span>
+    </div>
+    <div id="checklistBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="resetChecklist">Reset</button>
+      <button class="btn btn-primary" data-close-modal="checklistModal">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="timesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="timesTitle">
+  <div class="modal">
+    <h2 id="timesTitle">Processing Times</h2>
+    <p class="modal-sub">Typical published averages. Confirm your case on the official IRCC processing time tool.</p>
+    <div id="timesBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-primary" data-close-modal="timesModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="feesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="feesTitle">
+  <div class="modal">
+    <h2 id="feesTitle">Fee Calculator</h2>
+    <p class="modal-sub">Estimate government fees in Canadian dollars. Estimates only, verify before paying.</p>
+    <div class="form-grid">
+      <div class="field full">
+        <label for="feeApp">Application</label>
+        <select id="feeApp">
+          <option value="study">Study permit (outside Canada)</option>
+          <option value="studyExt">Study permit extension (inside Canada)</option>
+          <option value="work">Work permit (employer-specific)</option>
+          <option value="pgwp">Post-graduation work permit</option>
+          <option value="visitor">Visitor visa</option>
+          <option value="pr">Permanent residence (Express Entry, single applicant)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="feeApplicants">Applicants</label>
+        <input type="number" id="feeApplicants" value="1" min="1" max="6" />
+      </div>
+      <div class="field">
+        <label for="feeBiometrics">Biometrics</label>
+        <select id="feeBiometrics">
+          <option value="yes">Yes</option>
+          <option value="no">No, already given</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label>Total estimate</label>
+        <div class="card" style="padding:14px;display:flex;align-items:baseline;gap:10px;">
+          <span id="feeTotal" style="font-size:26px;font-weight:700;">CAD 0</span>
+          <span class="small muted" id="feeBreakdown"></span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-primary" data-close-modal="feesModal">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/store.js"></script>
+<script src="assets/js/layout.js"></script>
+<script src="assets/js/pages/requirements.js"></script>
+</body>
+</html>
